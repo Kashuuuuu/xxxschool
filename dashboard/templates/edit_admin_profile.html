@@ -1,0 +1,239 @@
+{% extends "b.html" %}
+{% block content %}
+
+
+
+{% if messages %}    
+<div class="panel-body" style="background-color: white;"> 
+    {% for m in messages %} 
+    {% if m.tags == 'success' %}
+      <div class="alert alert-success" style="color: rgb(117, 228, 53);">
+          <strong>Success!</strong>{{m}}
+      </div>
+      {% endif %} {% if m.tags == 'info' %}
+      <div class="alert alert-info" style="color: rgb(71, 194, 243);">
+          <strong>Heads up!</strong> {{m}}
+      </div>{% endif %} {% if m.tags == 'warning' %}
+      <div class="alert alert-warning" style="color: rgba(231, 231, 39, 0.726);">
+          <strong>Warning!</strong>{{m}}
+      </div>{% endif %} {% if m.tags == 'error' %}
+      <div class="alert alert-danger" style="color: red;">
+          <strong>Error!</strong> {{m}}
+      </div>{% endif %}
+  {% endfor %}</div>
+
+{% endif %} 
+
+
+<div class="content-body">
+    <div class="container-fluid">
+     <div class="row page-titles mx-0">
+      <div class="col-sm-6 p-md-0">
+       <div class="welcome-text">
+        <h4>
+         Admin Profile
+        </h4>
+       </div>
+      </div>
+      {% comment %} <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+         <a href="index.html">
+          Home
+         </a>
+        </li>
+        <li class="breadcrumb-item active">
+         <a href="javascript:void(0);">
+          Students
+         </a>
+        </li>
+        <li class="breadcrumb-item active">
+         <a href="javascript:void(0);">
+          Add Student
+         </a>
+        </li>
+       </ol>
+      </div> {% endcomment %}
+     </div>
+     {% comment %} <div class="row">
+      <div class="col-xl-12 col-xxl-12 col-sm-12">
+       <div class="card">
+        <div class="card-header">
+         <h5 class="card-title">
+          Basic Info
+         </h5>
+        </div>
+        <div class="card-body">
+         <form action="#" method="post">
+          <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group fallback w-100">
+                    <label class="form-label">
+                        Image
+                        </label>
+                 <input class="dropify" data-default-file="" type="file"/>
+                </div>
+               </div>
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+             Name
+             </label>
+             <input class="form-control" type="text" name="name" />
+            </div>
+           </div>
+          
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Email
+             </label>
+             <input class="form-control" type="text" name="email"/>
+            </div>
+           </div>
+          
+           
+         
+         
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Mobile Number
+             </label>
+             <input class="form-control" type="text" name="mobile" />
+            </div>
+           </div>
+           
+          
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Date of Birth
+             </label>
+             <input class="datepicker-default form-control" id="datepicker1" name="dob"/>
+            </div>
+           </div>
+         
+           <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Address
+             </label>
+             <textarea class="form-control" rows="5" name="address"></textarea>
+            </div>
+           </div>
+           
+           <div class="col-lg-12 col-md-12 col-sm-12">
+            <button class="btn btn-primary" type="submit">
+             Submit
+            </button>
+            <button class="btn btn-light" type="submit">
+             Cencel
+            </button>
+           </div>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div> {% endcomment %}
+
+     <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+         <div class="row">
+          {{form}}
+
+          <button class="btn btn-primary" type='submit' style="margin-top:15px;"> Submit</button>
+             
+            
+      {% comment %} <div class="col-xl-12 col-xxl-12 col-sm-12">
+       <div class="card">
+        <div class="card-header">
+         <h5 class="card-title">
+          Basic Info
+         </h5>
+        </div>
+        <div class="card-body">
+         <form action="#" method="post">
+          <div class="row">
+            <input id="user"  name="usr"> 
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group fallback w-100">
+                    <label class="form-label">
+                        Image
+                        </label>
+                 <input class="dropify" data-default-file="" type="file"/>
+                </div>
+               </div>
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+             Name
+             </label>
+             <input class="form-control" type="text" name="name" />
+            </div>
+           </div>
+          
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Email
+             </label>
+             <input class="form-control" type="email" name="email"/>
+            </div>
+           </div>
+          
+           
+         
+         
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Mobile Number
+             </label>
+             <input class="form-control" type="number" name="mobile" />
+            </div>
+           </div>
+           
+          
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Date of Birth
+             </label>
+             <input class="datepicker-default form-control" type="number" id="datepicker1" name="dob"/>
+            </div>
+           </div>
+         
+           <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+             <label class="form-label">
+              Address
+             </label>
+             <input class="form-control" type="textarea" name="address" />
+
+            
+            </div>
+           </div>
+           
+           <div class="col-lg-12 col-md-12 col-sm-12">
+            <button class="btn btn-primary" type="submit">
+             Submit
+            </button>
+            <button class="btn btn-light" type="submit">
+             Cencel
+            </button>
+           </div>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div> {% endcomment %}
+          </div> 
+     </form>
+    </div>
+   </div>
+
+{% endblock content %}

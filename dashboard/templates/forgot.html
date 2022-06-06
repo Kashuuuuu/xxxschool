@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V9</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/static/asset/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/static/asset/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/asset/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/asset/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	
+	<div class="container-login100" style="background-image: url('/static/asset/images/bg-01.jpg');">
+
+	
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			<form class="login100-form validate-form" method="POST">
+				{% csrf_token %}
+
+			 {% if messages %}    
+				<div class="panel-body" style="background-color: white;"> 					{% for m in messages %} 
+					{% if m.tags == 'success' %}
+					  <div class="alert alert-success" style="color: rgb(117, 228, 53);">
+						  <strong>Success!</strong>{{m}}
+					  </div>
+					  {% endif %} {% if m.tags == 'info' %}
+					  <div class="alert alert-info" style="color: rgb(71, 194, 243);">
+						  <strong>Heads up!</strong> {{m}}
+					  </div>{% endif %} {% if m.tags == 'warning' %}
+					  <div class="alert alert-warning" style="color: rgba(231, 231, 39, 0.726);">
+						  <strong>Warning!</strong>{{m}}
+					  </div>{% endif %} {% if m.tags == 'error' %}
+					  <div class="alert alert-danger" style="color: red;">
+						  <strong>Error!</strong> {{m}}
+					  </div>{% endif %}
+				  {% endfor %}</div>
+	  
+	  {% endif %}  
+
+				<span class="login100-form-title p-b-37">
+					Forgot Password 
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+					<input class="input100" type="email" name="email" placeholder="email ">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn" type='submit'>
+					RESET
+					</button>
+				</div>
+				
+				
+			</form>
+
+			
+		</div>
+	</div>
+	
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/asset/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/asset/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/asset/js/main.js"></script>
+
+</body>
+</html>
